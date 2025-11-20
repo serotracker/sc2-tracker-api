@@ -1,4 +1,5 @@
-import express from 'express'
+import express from 'express';
+import cors from 'cors';
 import { MongoClient } from "mongodb";
 import { generateRouter } from './router.js';
 
@@ -16,6 +17,7 @@ await mongoClient.connect();
 const app = express();
 const { router } = generateRouter({ mongoClient });
 
+app.use(cors());
 app.use('/', router);
 
 export default app;
