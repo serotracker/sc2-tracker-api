@@ -2,11 +2,15 @@
   "name": "express",
   "type": "module",
   "dependencies": {
-    "express": "5.1.0"
+    "express": "5.1.0",
+    "mongodb": "^6.21.0",
+    "lodash": "4.17.21",
+    "zod": "4.1.12"
   },
   "devDependencies": {
-    "@types/node": "20.11.17",
     "@types/express": "5.0.0",
-    "typescript": "5.8.3"
+    "@types/node": "22.13.14",
+    "@types/lodash": "^4.17.20",
+    "typescript": "5.9.3"
   }
 }
