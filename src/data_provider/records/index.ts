@@ -57,8 +57,8 @@ interface DataProviderRecordsRequestResponseBody {
 
 const dataProviderRecordsRequestBodySchema = z.object({
   columns: z.array(z.literal(['source_id', 'estimate_grade', 'pin_latitude', 'pin_longitude'])),
-  estimates_subgroup: 'primary_estimates',
-  filters: {
+  estimates_subgroup: z.literal('primary_estimates'),
+  filters: z.object({
     age: z.array(z.string()),
     antibody_target: z.array(z.string()),
     country: z.array(z.string()),
@@ -69,7 +69,7 @@ const dataProviderRecordsRequestBodySchema = z.object({
     sex: z.array(z.string()),
     source_type: z.array(z.string()),
     test_type: z.array(z.string()),
-  },
+  }),
   sampling_end_date: z.string(),
   sampling_start_date: z.string(),
   unity_aligned_only: z.boolean(),
