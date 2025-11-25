@@ -77,10 +77,10 @@ export const generateDataProviderRecordDetailsRequestHandler = (
   const databaseName = process.env.DATABASE_NAME;
 
   const dataProviderRecordDetailsRequestHandler: RequestHandler = async(request, response) => {
-    const id = new ObjectId(request.params.uid);
+    const _id = new ObjectId(request.params.uid);
 
     const estimatesCollection = mongoClient.db(databaseName).collection<SarsCov2EstimateDocument>('sarsCov2Estimates');
-    const estimate = await estimatesCollection.findOne({ id });
+    const estimate = await estimatesCollection.findOne({ _id });
 
     const responseBody: RecordDetails = {
       academic_primary_estimate: true,
