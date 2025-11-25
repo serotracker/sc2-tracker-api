@@ -18,7 +18,7 @@ interface RecordDetails {
   age: string;
   antibody_target: Array<string>;
   cases_per_hundred: number;
-  city: Array<string>;
+  city: Array<string> | string | null;
   country: string;
   dashboard_primary_estimate: true,
   deaths_per_hundred: number;
@@ -56,7 +56,7 @@ interface RecordDetails {
   source_type: string;
   specificity: 0;
   specimen_type: '';
-  state: Array<string>;
+  state: Array<string> | string | null;
   study_name: string;
   study_type: '';
   subgroup_var: '';
@@ -90,7 +90,7 @@ export const generateDataProviderRecordDetailsRequestHandler = (
       age: estimate.ageGroup,
       antibody_target: estimate.antibodies,
       cases_per_hundred: estimate.countryPositiveCasesPerMillionPeople * 10_000,
-      city: [ estimate.city ],
+      city: estimate.city,
       country: estimate.country,
       dashboard_primary_estimate: true,
       deaths_per_hundred: 0,
@@ -128,7 +128,7 @@ export const generateDataProviderRecordDetailsRequestHandler = (
       source_type: estimate.sourceType,
       specificity: 0,
       specimen_type: '',
-      state: [ estimate.state ],
+      state: estimate.state,
       study_name: estimate.studyName,
       study_type: '',
       subgroup_var: '',
